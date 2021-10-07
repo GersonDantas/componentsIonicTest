@@ -9,7 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import {  images, square, alert, list, bandage, card, checkbox } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -32,6 +32,10 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Tab4 from './pages/Tab4';
+import Tab5 from './pages/Tab5';
+import ExampleCard from './pages/ExampleCard';
+import ExempleCheckBox from './pages/ExempleCheckBox';
 
 const App: React.FC = () => (
   <IonApp>
@@ -44,8 +48,20 @@ const App: React.FC = () => (
           <Route exact path="/tab2">
             <Tab2 />
           </Route>
-          <Route path="/tab3">
+          <Route exact path="/tab3">
             <Tab3 />
+          </Route>
+          <Route exact path="/tab4">
+            <Tab4 />
+          </Route>
+          <Route exact path="/tab5">
+            <Tab5 />
+          </Route>
+          <Route exact path="/examplecard">
+            <ExampleCard />
+          </Route>
+          <Route exact path="/examplecheckbox">
+            <ExempleCheckBox />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
@@ -53,16 +69,32 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
+            <IonIcon icon={alert} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon icon={images} />
+            <IonLabel>Photos</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Tab 3</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab4" href="/tab4">
+            <IonIcon icon={list} />
+            <IonLabel>Tab 4</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab5" href="/tab5">
+            <IonIcon icon={bandage} />
+            <IonLabel>Tab 5</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="Example Card" href="/examplecard">
+            <IonIcon icon={card} />
+            <IonLabel>Card</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="CHeckbox" href="/examplecheckbox">
+            <IonIcon icon={checkbox} />
+            <IonLabel>CheckBox</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

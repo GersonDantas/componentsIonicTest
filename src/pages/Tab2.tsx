@@ -1,25 +1,83 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab2.css';
+import React, { useState } from 'react'
+import { camera, close, trash } from 'ionicons/icons'
+import {
+  IonContent,
+  IonFab,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonFabButton,
+  IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonImg,
+  IonActionSheet,
+} from '@ionic/react'
+import './Tab2.css'
+import { usePhotoGallery, UserPhoto } from '../hooks/usePhotoGallery'
+import MyIonList from '../components/MyIconList'
 
 const Tab2: React.FC = () => {
+  const [photoDelete, setPhotoDelete] = useState<UserPhoto>()
+  const { takePhoto, photos, deletePhoto } = usePhotoGallery()
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
+          <IonTitle>Photo Jesus</IonTitle>
+          <MyIonList />
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
+            <IonTitle size="large">Galery</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
+        <IonGrid>
+          <IonRow>
+            {photos.map(photo => (
+              <IonCol>
+                <IonImg
+                  src={photo.webviewPath}
+                  onClick={() => setPhotoDelete(photo)}
+                />
+              </IonCol>
+            ))}
+          </IonRow>
+        </IonGrid>
+        <IonFab vertical="bottom" horizontal="center" slot="fixed">
+          <IonFabButton onClick={() => takePhoto()}>
+            <IonIcon icon={camera}></IonIcon>
+          </IonFabButton>
+        </IonFab>
+        <IonActionSheet
+          isOpen={!!photoDelete}
+          buttons={[
+            {
+              text: 'Delete',
+              role: 'destructive',
+              icon: trash,
+              handler: () => {
+                if (photoDelete) {
+                  deletePhoto(photoDelete)
+                  setPhotoDelete(undefined)
+                }
+              }
+            },
+            {
+              text: 'Cancel',
+              icon: close,
+              role: 'cancel'
+            }
+          ]}
+          onDidDismiss={() => setPhotoDelete(undefined)}
+        />
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Tab2;
+export default Tab2
