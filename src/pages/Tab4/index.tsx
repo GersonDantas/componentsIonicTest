@@ -1,16 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React from 'react';
 import {
   IonAvatar,
-  IonCard,
   IonContent,
   IonItem,
   IonLabel,
   IonPage,
   IonRippleEffect
-} from '@ionic/react'
-import { Virtuoso } from 'react-virtuoso'
-import './styles.css'
+} from '@ionic/react';
+import { Virtuoso } from 'react-virtuoso';
+import { MyCard } from './styles';
 
 const Tab4: React.FC = () => {
   return (
@@ -29,21 +28,21 @@ const Tab4: React.FC = () => {
                   <IonLabel>{index}</IonLabel>
                 </IonItem>
               </div>
-            )
+            );
           }}
         />
         <IonItem>
-          <IonCard>
+          <MyCard>
             <div className="ion-activatable ripple-parent">
               A plain div with a bounded ripple effect
               {/* para adicionar o efeito cascata */}
               <IonRippleEffect></IonRippleEffect>
             </div>
-          </IonCard>
+          </MyCard>
         </IonItem>
       </IonContent>
     </IonPage>
-  )
-}
+  );
+};
 
-export default Tab4
+export default Tab4;

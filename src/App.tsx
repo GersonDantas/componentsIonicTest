@@ -6,10 +6,19 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs,
+  IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {  images, square, alert, list, bandage, card, checkbox } from 'ionicons/icons';
+import {
+  images,
+  square,
+  alert,
+  list,
+  bandage,
+  card,
+  checkbox,
+  calendar
+} from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -31,18 +40,20 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+import GlobalStyles from './theme/variables';
 import Tab4 from './pages/Tab4';
 import Tab5 from './pages/Tab5';
 import ExampleCard from './pages/ExampleCard';
 import ExempleCheckBox from './pages/ExempleCheckBox';
+import PageDatePicker from './pages/PageDatePicker';
 
 const App: React.FC = () => (
   <IonApp>
+    <GlobalStyles />
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
+          {/* <Route exact path="/tab1">
             <Tab1 />
           </Route>
           <Route exact path="/tab2">
@@ -53,9 +64,12 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/tab4">
             <Tab4 />
-          </Route>
+          </Route> */}
           <Route exact path="/tab5">
             <Tab5 />
+          </Route>
+          <Route exact path="/datetime">
+            <PageDatePicker />
           </Route>
           <Route exact path="/examplecard">
             <ExampleCard />
@@ -68,7 +82,7 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
+          {/* <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={alert} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
@@ -83,18 +97,22 @@ const App: React.FC = () => (
           <IonTabButton tab="tab4" href="/tab4">
             <IonIcon icon={list} />
             <IonLabel>Tab 4</IonLabel>
-          </IonTabButton>
+          </IonTabButton> */}
           <IonTabButton tab="tab5" href="/tab5">
             <IonIcon icon={bandage} />
             <IonLabel>Tab 5</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Example Card" href="/examplecard">
+          <IonTabButton tab="ExampleCard" href="/examplecard">
             <IonIcon icon={card} />
             <IonLabel>Card</IonLabel>
           </IonTabButton>
           <IonTabButton tab="CHeckbox" href="/examplecheckbox">
             <IonIcon icon={checkbox} />
             <IonLabel>CheckBox</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="dateTime" href="/datetime">
+            <IonIcon icon={calendar} />
+            <IonLabel>Date time</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

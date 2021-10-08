@@ -3,8 +3,6 @@
 an easy-to-implement cross platform application. I also leave here the example to implement the dark theme
 
 ## Aplication running:
-
-
 ### mobile aplication example
 
 ![Image mobile aplication](https://github.com/GersonDantas/componentsIonicTest/blob/master/assets/mobileAplication.gif)
@@ -25,7 +23,7 @@ an easy-to-implement cross platform application. I also leave here the example t
 ![Estyling for componet toggle](https://github.com/GersonDantas/componentsIonicTest/blob/master/assets/toggleCss.png)
 
 * Copy and paste into the same file the css selectors "Body", " .ios Body", "ios body ", ".ios ion-modal.dark ", ".md body.dark". However, add the ".dark" class as shown in the image.
-
+2
 ![Image mobile aplication](https://github.com/GersonDantas/componentsIonicTest/blob/master/assets/themeCss.png)
 
 

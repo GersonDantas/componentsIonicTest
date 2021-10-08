@@ -11,7 +11,8 @@ import {
   IonLabel,
   IonItemDivider
 } from '@ionic/react';
-import './styles.css'
+import {MyCheckBox}from './styles'
+import MyIonToggleThem from '../../components/MyIonToggleTheme';
 
 const checkboxList = [
   { val: 'Pepperoni', isChecked: true },
@@ -26,6 +27,7 @@ const ExempleCheckBox: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>CHeckboxExamples</IonTitle>
+          <MyIonToggleThem />
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -53,7 +55,7 @@ const ExempleCheckBox: React.FC = () => {
               indeterminate
               color="primary"
             />
-            <IonCheckbox slot="end" checked color="secondary" />
+            <MyCheckBox slot="end" checked color="dark" />
             <IonCheckbox slot="end" checked color="danger" />
             <IonCheckbox slot="end" checked mode="md" color="light" />
             <IonCheckbox slot="end" className="mark" color="dark" />

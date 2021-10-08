@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { camera, close, trash } from 'ionicons/icons'
+import React, { useState } from 'react';
+import { camera, close, trash } from 'ionicons/icons';
 import {
   IonContent,
   IonFab,
@@ -13,21 +13,21 @@ import {
   IonRow,
   IonCol,
   IonImg,
-  IonActionSheet,
-} from '@ionic/react'
-import './Tab2.css'
-import { usePhotoGallery, UserPhoto } from '../hooks/usePhotoGallery'
-import MyIonList from '../components/MyIconList'
+  IonActionSheet
+} from '@ionic/react';
+import './Tab2.css';
+import { usePhotoGallery, UserPhoto } from '../hooks/usePhotoGallery';
+import MyIonToggleTheme from '../components/MyIonToggleTheme';
 
 const Tab2: React.FC = () => {
-  const [photoDelete, setPhotoDelete] = useState<UserPhoto>()
-  const { takePhoto, photos, deletePhoto } = usePhotoGallery()
+  const [photoDelete, setPhotoDelete] = useState<UserPhoto>();
+  const { takePhoto, photos, deletePhoto } = usePhotoGallery();
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Photo Jesus</IonTitle>
-          <MyIonList />
+          <MyIonToggleTheme />
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -62,8 +62,8 @@ const Tab2: React.FC = () => {
               icon: trash,
               handler: () => {
                 if (photoDelete) {
-                  deletePhoto(photoDelete)
-                  setPhotoDelete(undefined)
+                  deletePhoto(photoDelete);
+                  setPhotoDelete(undefined);
                 }
               }
             },
@@ -77,7 +77,7 @@ const Tab2: React.FC = () => {
         />
       </IonContent>
     </IonPage>
-  )
-}
+  );
+};
 
-export default Tab2
+export default Tab2;
