@@ -17,7 +17,8 @@ import {
   bandage,
   card,
   checkbox,
-  calendar
+  calendar,
+  listCircle
 } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -46,6 +47,7 @@ import Tab5 from './pages/Tab5';
 import ExampleCard from './pages/ExampleCard';
 import ExempleCheckBox from './pages/ExempleCheckBox';
 import PageDatePicker from './pages/PageDatePicker';
+import MyInfinitScroll from './components/MyInifitScroll';
 
 const App: React.FC = () => (
   <IonApp>
@@ -76,6 +78,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/examplecheckbox">
             <ExempleCheckBox />
+          </Route>
+          <Route exact path="/infinitscroll">
+            <MyInfinitScroll />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
@@ -112,6 +117,10 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="dateTime" href="/datetime">
             <IonIcon icon={calendar} />
+            <IonLabel>Date time</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="infinitScroll" href="/infinitscroll">
+            <IonIcon icon={listCircle} />
             <IonLabel>Date time</IonLabel>
           </IonTabButton>
         </IonTabBar>
